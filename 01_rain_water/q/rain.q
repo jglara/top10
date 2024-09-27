@@ -6,3 +6,7 @@ rain: {
  rm: reverse maxs reverse x;    / acum max from right side
  sum (lm & rm) - x              / get min of both
  }
+
+
+rain i
+rain j
