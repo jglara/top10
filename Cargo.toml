@@ -1,0 +1,12 @@
+[package]
+name = "top10"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "rain_water"
+path = "01_rain_water/rust/main.rs"
+
+
+[dependencies]
+anyhow = "1.0"
