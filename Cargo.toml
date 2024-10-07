@@ -7,6 +7,9 @@ edition = "2021"
 name = "rain_water"
 path = "01_rain_water/rust/main.rs"
 
+[[bin]]
+name = "rmco"
+path = "02_mco/rust/main.rs"
 
 [dependencies]
 anyhow = "1.0"
