@@ -15,5 +15,9 @@ path = "02_mco/rust/main.rs"
 name = "lcis"
 path = "03_lcis/rust/main.rs"
 
+[[bin]]
+name = "msa"
+path = "04_max_subarray/rust/main.rs"
+
 [dependencies]
 anyhow = "1.0"
