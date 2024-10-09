@@ -19,5 +19,10 @@ path = "03_lcis/rust/main.rs"
 name = "msa"
 path = "04_max_subarray/rust/main.rs"
 
+[[bin]]
+name = "sushi"
+path = "05_sushi_for_two/rust/main.rs"
+
 [dependencies]
 anyhow = "1.0"
+itertools = "*"
