@@ -23,6 +23,10 @@ path = "04_max_subarray/rust/main.rs"
 name = "sushi"
 path = "05_sushi_for_two/rust/main.rs"
 
+[[bin]]
+name = "maxgap"
+path = "06_max_gap/rust/main.rs"
+
 [dependencies]
 anyhow = "1.0"
 itertools = "*"
