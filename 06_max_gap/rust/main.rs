@@ -9,6 +9,18 @@ fn max_gap(xs: Vec<i32>) -> i32 {
         .unwrap_or_default()
 }
 
+fn max_gap_2(mut xs: Vec<i32>) -> i32 {
+    xs.sort();
+
+        xs
+        .iter()
+        .zip(xs[1..].iter())
+        .map(|(x, y)| y - x)
+        .max()
+        .unwrap_or_default()
+}
+
+
 fn main() {
     println!("{:?}", max_gap(vec![3,6,9,1]));
 }

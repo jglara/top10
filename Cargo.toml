@@ -27,6 +27,10 @@ path = "05_sushi_for_two/rust/main.rs"
 name = "maxgap"
 path = "06_max_gap/rust/main.rs"
 
+[[bin]]
+name = "maxgapcount"
+path = "07_max_gap_count/rust/main.rs"
+
 [dependencies]
 anyhow = "1.0"
 itertools = "*"
