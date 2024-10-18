@@ -6,12 +6,8 @@
 int findMaxConsecutiveOnes(std::vector<int>& nums) {
     std::vector<int> cum_ones{};
     std::inclusive_scan(nums.cbegin(), nums.cend(), std::back_inserter<>(cum_ones), [] (auto acum, auto x) {
-        if (x == 1) {
-            acum++;
-        } else {
-            acum=0;
-        }
-        return acum;
+
+        return (acum+1) * x;
 
     });
 
