@@ -1,0 +1,3 @@
+
+set(SOURCE_FILES cpp/main.cpp)
+add_executable(lcis ${SOURCE_FILES})
