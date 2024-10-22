@@ -4,6 +4,7 @@
 #include <numeric>
 
 
+
 int findLengthOfLCIS(std::vector<int>& nums) {
     std::vector<int> d;
 
