@@ -38,7 +38,6 @@ int trap_water_left(Range &&rng)
 {
     int cummax{0};
 
-    rng::par
     auto h = rng | vws::transform([&cummax](auto &&x)
                                   { cummax= std::max(cummax, x); return cummax; });
 
