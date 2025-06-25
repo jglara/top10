@@ -37,11 +37,10 @@ template <typename Range>
 int trap_water_left(Range &&rng)
 {
     int cummax{0};
-
     auto h = rng | vws::transform([&cummax](auto &&x)
-                                  { cummax= std::max(cummax, x); return cummax; });
+                                  { cummax= std::max(cummax, x); return cummax-x; });
 
-    return rng::fold_left(h, 0, std::plus<>()) - rng::fold_left(rng, 0, std::plus<>());
+    return rng::fold_left(h, 0, std::plus<>());
 }
 
 // Split the sequence in two, using the max element; 
