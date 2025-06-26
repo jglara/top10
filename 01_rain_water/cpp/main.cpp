@@ -36,8 +36,7 @@ int trap(std::vector<int> &height)
 template <typename Range>
 int trap_water_left(Range &&rng)
 {
-    int cummax{0};
-    auto h = rng | vws::transform([&cummax](auto &&x)
+    auto h = rng | vws::transform([cummax = 0](auto &&x) mutable
                                   { cummax= std::max(cummax, x); return cummax-x; });
 
     return rng::fold_left(h, 0, std::plus<>());
