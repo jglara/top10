@@ -33,8 +33,7 @@ int trap(std::vector<int> &height)
 // Better solution using ranges.
 
 // Helper function to calculate trap water if last column is the higher
-template <typename Range>
-int trap_water_left(Range &&rng)
+int trap_water_left(auto &&rng)
 {
     auto h = rng | vws::transform([cummax = 0](auto &&x) mutable
                                   { cummax= std::max(cummax, x); return cummax-x; });
