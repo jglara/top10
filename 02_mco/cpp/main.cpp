@@ -26,7 +26,15 @@ int mco(std::vector<int>& nums) {
         return cum_ones;
     });
 
-    return rng::fold_left(cum, 0, std::plus<>());
+    return rng::fold_left(cum, 0, [](auto x, auto y) { return std::max(x,y); });
+}
+
+int mco2(std::vector<int>& nums) {
+    auto grouped = nums | vws::chunk_by(rng::equal_to{}) | vws::transform([] (auto &&rng) {        
+        return rng::fold_left(rng, 0, std::plus<>());        
+    });
+    
+    return *rng::max_element(grouped);
 }
 
 
@@ -34,5 +42,6 @@ int main()
 {
     auto v = std::vector<int>{1,1,0,1,1,1};
     std::cout << findMaxConsecutiveOnes(v) << "\n";
-    std::cout << mco(v) << "\n";
+    std::cout << mco(v) << "\n";    
+    std::cout << mco2(v)  << "\n";
 }
