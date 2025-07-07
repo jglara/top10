@@ -1,11 +1,7 @@
 fn max_sub_array(nums: Vec<i32>) -> i32 {
     nums.iter()
         .scan(0, |acum, &x| {
-            if x > *acum + x {
-                *acum = x;
-            } else {
-                *acum +=x;
-            }
+            *acum = x + if x > *acum + x {0} else {*acum};
             Some(*acum)
         })
         .max()
