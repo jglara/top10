@@ -4,6 +4,10 @@
 #include <iostream>
 #include <algorithm>
 #include <numeric>
+#include <ranges>
+
+namespace rng = std::ranges;
+namespace vws = std::ranges::views;
 
 int sushi(std::vector<int> &nums) {
   std::vector<int> s;
@@ -26,13 +30,21 @@ int sushi(std::vector<int> &nums) {
   
 }
 
+int sushi2(std::vector<int> &nums) {
+  auto v = nums | vws::chunk_by(std::equal_to<>{}) 
+                | vws::transform([] (auto &&r) { return rng::fold_left(r, 0,std::plus<>{}); }) 
+                | vws::pairwise_transform([] (auto x, auto y) { return std::min(x,y); });
+
+  return 2 * *rng::max_element(v);
+}
+
 int main() {
   auto v = std::vector<int>{2, 2, 2, 1, 1, 2, 2};
   auto v2 = std::vector<int>{1, 2, 1, 2, 1, 2};
   auto v3 = std::vector<int>{2, 2, 1, 1, 1, 2, 2, 2, 2};
 
-  std::cout << sushi(v3) << "\n"; // 6
-  std::cout << sushi(v) << "\n"; // 4
-  std::cout << sushi(v2) << "\n"; // 2
+  std::cout << sushi2(v3) << "\n"; // 6
+  std::cout << sushi2(v) << "\n"; // 4
+  std::cout << sushi2(v2) << "\n"; // 2
 
 }
